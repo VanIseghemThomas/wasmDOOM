@@ -41,6 +41,12 @@ python3 http.server -p <some-custom-port>
 
 Now DOOM should be available on `localhost`
 
+# Limitations:
+Note: this does not mean I wont look into resolving this in the future. I will do my absolute best to get as close as possible to a native gaming experience.
+- No support for audio
+- No controller support (only tested on mobile)
+- Project build only tested and developed on MacOS
+
 # Credits / sources
 I can't take credit for al the work here. This repository is based on the work done by [sdl2-doom](https://github.com/AlexOberhofer/sdl2-doom) which is modified to work with the [SDL2 library](https://www.libsdl.org/) also known as the Simple DirectMedia Layer. This library makes it easy to interact with video, audio, input hardware and has excellent support for WASM.
 
