@@ -1,20 +1,16 @@
-SOURCE_DIR=src
-OUT_DIR=public/wasm
+SOURCE_DIR=./
 OUT_NAME=wasm-doom
-
-# ONLY UNTIL THE WAD FILE LOADER IS IMPLEMENTED
-PREFLOAD_WAD ?= $(shell echo $$PREFLOAD_WAD)
-PREFLOAD_WAD := $(or $(PREFLOAD_WAD),doom.wad)
-$(Using PRELOAD_WAD=$(PRELOAD_WAD))
+OUT_DIR ?= $(shell echo $$OUT_DIR)
+OUT_DIR := $(or $(OUT_DIR),../public/wasm)
 
 SDL_CFLAGS = -D_REENTRANT -D_THREAD_SAFE -s USE_SDL=2
-INCLUDES=-Iinclude 
+INCLUDES=-I../include 
 # For MacOS SDL2 install with homebrew
 INCLUDES+=-I/opt/homebrew/include
 # TODO - Look into Linux and Windows SDL2 install paths
 CC=emcc
 CFLAGS+= $(INCLUDES) $(SDL_CFLAGS)
-CFLAGS+=-Wall -DFEATURE_SOUND --preload-file $(PRELOAD_WAD)@doom-data.wad
+CFLAGS+=-Wall -DFEATURE_SOUND
 CFLAGS+=-sEXPORTED_RUNTIME_METHODS=FS,callMain -sMODULARIZE=1 -sEXPORT_ES6 -sINVOKE_RUN=0
 LIBS+=-lm -lSDL2 -lSDL2_mixer `sdl2-config --cflags --libs`
 OBJDIR=$(SOURCE_DIR)/build
@@ -105,10 +101,6 @@ SRC_DOOM = i_main.o \
 
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_DOOM))
 
-# First check if the WAD file actually exists
-ifeq (,$(wildcard $(PRELOAD_WAD)))
-$(error WAD file $(PRELOAD_WAD) does not exist)
-endif
 
 all:	 $(OUTPUT)
 

@@ -5,7 +5,7 @@ This project is for educational purposes and learned me the basics of taking an 
 
 
 # Building
-## Dependencies
+## Dependencies (not relevant when using Docker)
 - make
 - emscriptem
 - SDL2
@@ -34,12 +34,19 @@ brew install SDL2_ttf
 ```
 
 ## Compile
+### Using Docker
+The build script will take care of everything.
+```
+./build.sh
+```
+
+### Locally
 (Temporary until I get a WAD loader working)
 We need to also compile the game assets inside the application for now. For this you will need a so called "where all data" .wad file. I got mine [from here](http://sauparna.sdf.org/Doom/Compile_Doom) and is tested working. You can just put it in the root of the repository, or somewhere you like.
 
 To build the project simply run:
 ```
-PRELOAD_WAD=<wad-file-location> make
+cd src && make
 ```
 Then you can host a simple web server to serve the page. I always use a simple python module for this:
 
