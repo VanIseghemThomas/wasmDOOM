@@ -55,7 +55,7 @@ Note: this does not mean I wont look into resolving this in the future. I will d
 # Credits / sources
 I can't take credit for al the work here. This repository is based on the work done by [sdl2-doom](https://github.com/AlexOberhofer/sdl2-doom) which is modified to work with the [SDL2 library](https://www.libsdl.org/) also known as the Simple DirectMedia Layer. This library makes it easy to interact with video, audio, input hardware and has excellent support for WASM.
 
-As for understanding how to compile to WASM, the following resources where a big help:
+As for understanding how to compile to WASM, the following resources were a big help:
 - https://web.dev/articles/compiling-mkbitmap-to-webassembly
 - https://web.dev/articles/drawing-to-canvas-in-emscripten
 
