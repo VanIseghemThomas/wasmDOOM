@@ -1,11 +1,11 @@
 /* DOOM font from: https://www.fontspace.com/amaz-doom-font-f9098 */
 @font-face {
   font-family: 'Amazdoomleft';
-  src: url('./fonts/Amazdoomleft-epw3.ttf') format('truetype');
+  src: url('../fonts/Amazdoomleft-epw3.ttf') format('truetype');
 }
 @font-face {
 font-family: 'Amazdoomright';
-src: url('./fonts/Amazdoomright-o1B0.ttf') format('truetype');
+src: url('../fonts/Amazdoomright-o1B0.ttf') format('truetype');
 }
 
 
