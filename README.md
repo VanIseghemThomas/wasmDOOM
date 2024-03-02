@@ -6,6 +6,10 @@ This project is for educational purposes and learned me the basics of taking an 
 
 # Building
 ## Dependencies
+- make
+- emscriptem
+- SDL2
+
 The easy way is to go to `intallers` and run:
 ```
 install_deps_<target-platform>.sh
