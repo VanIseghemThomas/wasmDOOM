@@ -5,12 +5,31 @@
   <title>WASM Doom</title>
   <script type="module" src="./wasm/wasm-doom.js"></script>
   <script type="module" src="./scripts/doom.js"></script>
+  <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
-  <h2>Upload WAD file</h2>
-  <form>
-    <input type="file" name="file" id="wad-upload">
-  </form>
-  <canvas id="canvas"></canvas>
-</body>
+  <div class="file-upload-prompt vertical-center">
+	<div>	
+		<div class="app-title">
+			<div class="title-wasm-container">
+				<div class="title title-wasm">
+					<h2 class="title-left">Wa</h2>
+					<h2 class="title-right">sM</h2>
+				</div>
+			</div>
+			<div class="title title-doom">
+				<h1 class="title-left">DO</h1>
+				<h1 class="title-right">OM</h1>
+			</div>
+		</div>
+		<input type="file" style="display: none;" id="wad-upload">
+		<label for="wad-upload" class="custom-file-upload">Upload .wad File</label>
+		<canvas id="canvas"></canvas>
+	</div>
+  </body>
+
+  <footer>
+	WASM DOOM port by Thomas Van Iseghem
+  </footer>
+  </div>
 </html>

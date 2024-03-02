@@ -4,7 +4,7 @@ let canvas = document.getElementById('canvas');
 canvas.width = 320;
 canvas.height = 200;
 canvas.style.cursor = 'none';
-document.body.appendChild(canvas);
+canvas.style.display = 'none';
 
 // As a default initial behavior, pop up an alert when webgl context is lost. To make your
 // application robust, you may want to override this behavior before shipping!
@@ -29,6 +29,7 @@ fileUpload.addEventListener('change', (e) => {
     let file = e.target.files[0];
     let reader = new FileReader();
     reader.onload = (e) => {
+        canvas.style.display = 'block';
         let buffer = new Uint8Array(e.target.result);
         doom.FS.writeFile('/doom-data.wad', buffer);
         doom.callMain(['-iwad', 'doom-data.wad']);
@@ -36,3 +37,16 @@ fileUpload.addEventListener('change', (e) => {
     reader.readAsArrayBuffer(file);
     console.log('file uploaded');
 });
+
+
+document.addEventListener("fullscreenchange", () => {
+    if (document.fullscreenElement) {
+        console.log("Application is now in fullscreen mode");
+    } else {
+        console.log("Application exited fullscreen mode");
+        canvas.style.display = 'none';
+        document.body.style.background = '';
+    }
+});
+
+

@@ -1,0 +1,141 @@
+/* DOOM font from: https://www.fontspace.com/amaz-doom-font-f9098 */
+@font-face {
+  font-family: 'Amazdoomleft';
+  src: url('./fonts/Amazdoomleft-epw3.ttf') format('truetype');
+}
+@font-face {
+font-family: 'Amazdoomright';
+src: url('./fonts/Amazdoomright-o1B0.ttf') format('truetype');
+}
+
+
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set background color */
+body {
+  background-color: #000;
+}
+
+/* Set font and text color */
+body {
+  font-family: 'Courier New', monospace;
+  color: #fff;
+}
+
+/* Set default text alignment */
+body {
+  text-align: center;
+}
+
+/* Style headings */
+h1, h2, h3 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Style links */
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Style buttons */
+button {
+  padding: 0.5rem 1rem;
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	padding: 1rem;
+	width: 100%;
+	height: 2.5rem;
+	background-color: #000;
+	color: gray;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+
+}
+
+.app-title {
+	height: calc(15rem);
+}
+.title {
+	font-size: 5rem;
+	display: flex;
+	justify-content: center;
+}
+
+.title-left {
+  	font-family: 'Amazdoomleft', sans-serif;
+}
+
+.title-right {
+  	font-family: 'Amazdoomright', sans-serif;
+}
+
+.title-wasm-container{
+	background-color: blue;
+	height: 5rem;
+}
+.title-wasm h2{
+	font-size: 4rem !important;
+	line-height: 5rem;
+	transform: translateY(.75rem);
+}
+
+.title-doom{
+	transform: translateX(3px);
+}
+.title-doom h1 {
+	color: #d40101;
+	line-height: 12rem;
+	position: relative;
+	z-index: 1;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.custom-file-upload {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: rgb(255, 0, 0);
+	background-color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+	position: relative;
+	z-index: 10;
+}
+
+.custom-file-upload:hover {
+    border-color: #777;
+}
+
+input[type="file"] {
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	font-size: 1em;
+	background-color: #d40101;
+	cursor: pointer;
+}
+
+input[type="file"]:hover {
+	border-color: #777;
+}
