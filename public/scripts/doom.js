@@ -24,7 +24,15 @@ let module_args = {
 }
 
 let doom = await Module(module_args);
-console.log(doom);
-// Assuming we have a doom1.wad file in the repo root and compiled it with wasm-doom
-// to the virtual filesystem at /doom-data.wad
-doom.callMain(['-iwad', 'doom-data.wad']);
+let fileUpload = document.getElementById('wad-upload');
+fileUpload.addEventListener('change', (e) => { 
+    let file = e.target.files[0];
+    let reader = new FileReader();
+    reader.onload = (e) => {
+        let buffer = new Uint8Array(e.target.result);
+        doom.FS.writeFile('/doom-data.wad', buffer);
+        doom.callMain(['-iwad', 'doom-data.wad']);
+    }
+    reader.readAsArrayBuffer(file);
+    console.log('file uploaded');
+});
