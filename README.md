@@ -1,6 +1,8 @@
 # wasmDOOM
 Adaption of the original DOOM ported to run in a WASM environment.
 This project is for educational purposes and learned me the basics of taking an existing project, that in particular includes graphics rendering, and porting it to WASM.
+![image](https://github.com/VanIseghemThomas/wasmDOOM/assets/55881698/79777d10-50fe-4521-bdbc-1dcd82395a91)
+
 
 # Building
 ## Dependencies
