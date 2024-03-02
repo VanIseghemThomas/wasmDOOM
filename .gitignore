@@ -58,3 +58,10 @@ dkms.conf
 *.wad
 *.savegame
 src/build
+
+# Wasm output
+# Not sure if I am allowed to distribute a compiled version
+# that's why I am ignoring it for now unitl I know more about it
+public/wasm/
+# also the wad (Shareware) file is baked into the .data file, so ignorig it
+*.data

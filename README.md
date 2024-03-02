@@ -28,15 +28,19 @@ brew install SDL2_ttf
 ```
 
 ## Compile
+(Temporary until I get a WAD loader working)
+We need to also compile the game assets inside the application for now. For this you will need a so called "where all data" .wad file. I got mine [from here](http://sauparna.sdf.org/Doom/Compile_Doom) and is tested working. You can just put it in the root of the repository, or somewhere you like.
+
 To build the project simply run:
 ```
-make
+PRELOAD_WAD=<wad-file-location> make
 ```
 Then you can host a simple web server to serve the page. I always use a simple python module for this:
 
 # Serving
 ```
-python3 http.server -p <some-custom-port>
+cd public
+python3 http.server (optional: -p <some-custom-port>)
 ```
 
 Now DOOM should be available on `localhost`
@@ -45,6 +49,7 @@ Now DOOM should be available on `localhost`
 Note: this does not mean I wont look into resolving this in the future. I will do my absolute best to get as close as possible to a native gaming experience.
 - No support for audio
 - No controller support (only tested on mobile)
+- Persistent save between reloads
 - Project build only tested and developed on MacOS
 
 # Credits / sources
