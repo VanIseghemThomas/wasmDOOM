@@ -3,11 +3,38 @@ Adaption of the original DOOM ported to run in a WASM environment.
 This project is for educational purposes and learned me the basics of taking an existing project, that in particular includes graphics rendering, and porting it to WASM.
 
 # Building
+## Dependencies
+The easy way is to go to `intallers` and run:
+```
+install_deps_<target-platform>.sh
+```
+
+Or you can do the manual way below:
+### Emscriptem
+From the [official docs](https://emscripten.org/docs/getting_started/downloads.html):
+```
+git clone https://github.com/emscripten-core/emsdk.git
+cd emsdk
+./emsdk install latest
+./emsdk activate latest
+source ./emsdk_env.sh
+```
+
+### SDL 2 (MacOS)
+```
+brew install SDL2
+brew install SDL2_image
+brew install SDL2_ttf
+```
+
+## Compile
 To build the project simply run:
 ```
 make
 ```
 Then you can host a simple web server to serve the page. I always use a simple python module for this:
+
+# Serving
 ```
 python3 http.server -p <some-custom-port>
 ```
