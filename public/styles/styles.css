@@ -64,11 +64,10 @@ footer {
 	display: flex;
 	justify-content: start;
 	align-items: center;
-
 }
 
 .app-title {
-	height: calc(15rem);
+	height: 15rem;
 }
 .title {
 	font-size: 5rem;
@@ -121,6 +120,7 @@ footer {
     display: inline-block;
 	position: relative;
 	z-index: 10;
+	margin-bottom: 1rem;
 }
 
 .custom-file-upload:hover {

@@ -23,14 +23,36 @@ let module_args = {
     }
 }
 
+
+function validateWadFile(buffer) {
+    // Check if the file is valid by checking the first 4 bytes of the file
+    // if they are not 'IWAD' then the file is not valid
+    // If the buffer is empty or the file is not a valid WAD file
+    if (buffer.length === 0 || buffer.length < 4) {
+        console.error('Empty buffer');
+        return false;
+    }
+    if (String.fromCharCode(buffer[0], buffer[1], buffer[2], buffer[3]) !== 'IWAD') {
+        console.error('Invalid WAD file');
+        return false;
+    }
+    return true;
+}
+
 let doom = await Module(module_args);
 let fileUpload = document.getElementById('wad-upload');
 fileUpload.addEventListener('change', (e) => { 
     let file = e.target.files[0];
     let reader = new FileReader();
     reader.onload = (e) => {
-        canvas.style.display = 'block';
         let buffer = new Uint8Array(e.target.result);
+        let errorLabel = document.querySelector('.error-label');
+        if (!validateWadFile(buffer)) {
+            errorLabel.style.display = 'block';
+            return;
+        }
+        errorLabel.style.display = 'none';
+        canvas.style.display = 'block';
         doom.FS.writeFile('/doom-data.wad', buffer);
         doom.callMain(['-iwad', 'doom-data.wad']);
     }
