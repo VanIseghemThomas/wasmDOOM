@@ -41,9 +41,6 @@ The build script will take care of everything.
 ```
 
 ### Locally
-(Temporary until I get a WAD loader working)
-We need to also compile the game assets inside the application for now. For this you will need a so called "where all data" .wad file. I got mine [from here](http://sauparna.sdf.org/Doom/Compile_Doom) and is tested working. You can just put it in the root of the repository, or somewhere you like.
-
 To build the project simply run:
 ```
 cd src && make
@@ -57,6 +54,8 @@ python3 http.server (optional: -p <some-custom-port>)
 ```
 
 Now DOOM should be available on `localhost`
+
+To play doom you will need to upload a so called "where all data" .wad file. I got mine [from here](http://sauparna.sdf.org/Doom/Compile_Doom) and is tested working. You can just put it in the root of the repository, or somewhere you like.
 
 # Limitations:
 Note: this does not mean I wont look into resolving this in the future. I will do my absolute best to get as close as possible to a native gaming experience.
