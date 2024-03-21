@@ -187,59 +187,24 @@ static void InitMusicModule(void)
 //
 
 void I_InitSound(boolean use_sfx_prefix)
-{  
-    boolean nosound, nosfx, nomusic;
-
-    //!
-    // @vanilla
-    //
-    // Disable all sound output.
-    //
-
-    nosound = M_CheckParm("-nosound") > 0;
-
-    //!
-    // @vanilla
-    //
-    // Disable sound effects. 
-    //
-
-    nosfx = M_CheckParm("-nosfx") > 0;
-
-    //!
-    // @vanilla
-    //
-    // Disable music.
-    //
-
-    nomusic = M_CheckParm("-nomusic") > 0;
-
+{
+    printf("I_InitSound: init called\n");
     // Initialize the sound and music subsystems.
+    printf("Initializing sound module\n");
+    InitSfxModule(use_sfx_prefix);
+    printf("Initializing music module\n");
+    InitMusicModule();
 
-    if (!nosound && !screensaver_mode)
+    if (!screensaver_mode)
     {
         // This is kind of a hack. If native MIDI is enabled, set up
         // the TIMIDITY_CFG environment variable here before SDL_mixer
         // is opened.
 
-        if (!nomusic
-         && (snd_musicdevice == SNDDEVICE_GENMIDI
-          || snd_musicdevice == SNDDEVICE_GUS))
+        if (snd_musicdevice == SNDDEVICE_GENMIDI || snd_musicdevice == SNDDEVICE_GUS)
         {
             printf("Setting TIMIDITY_CFG to %s\n", timidity_cfg_path);
             I_InitTimidityConfig();
-        }
-
-        if (!nosfx)
-        {
-            printf("Initializing sound module %s\n");
-            InitSfxModule(use_sfx_prefix);
-        }
-
-        if (!nomusic)
-        {
-            printf("Initializing music module %s\n");
-            InitMusicModule();
         }
     }
 

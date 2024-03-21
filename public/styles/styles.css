@@ -46,11 +46,13 @@ a {
 
 /* Style buttons */
 button {
-  padding: 0.5rem 1rem;
-  background-color: #ff0000;
-  color: #fff;
-  border: none;
-  cursor: pointer;
+	font-family: 'Courier New', monospace;
+	font-size: 1rem;
+	padding: 0.5rem 1rem;
+	background-color: #ff0000;
+	color: #fff;
+	border: none;
+	cursor: pointer;
 }
 
 footer {
@@ -117,10 +119,13 @@ footer {
     color: rgb(255, 0, 0);
 	background-color: #ffffff;
     cursor: pointer;
-    display: inline-block;
+    display: block;
 	position: relative;
 	z-index: 10;
 	margin-bottom: 1rem;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
 }
 
 .custom-file-upload:hover {

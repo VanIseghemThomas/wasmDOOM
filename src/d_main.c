@@ -1621,7 +1621,7 @@ void D_DoomMain (void)
     I_InitJoystick();
 
     // This does not work in the wasm environment.
-    // I_InitSound(true);
+    I_InitSound(true);
     // I_InitMusic();
 
 #ifdef FEATURE_MULTIPLAYER

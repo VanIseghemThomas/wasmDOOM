@@ -22,10 +22,15 @@
 				<h1 class="title-right">OM</h1>
 			</div>
 		</div>
-		<input type="file" style="display: none;" id="wad-upload">
-		<label for="wad-upload" class="custom-file-upload">Upload .wad File</label>
-		<p class="error-label" style="display: none; color: red;">The uploaded file is not valid</p>
-
+		<div style="margin-bottom: 2rem; display: block;">
+			<input type="file" style="display: none;" id="wad-upload">
+			<label for="wad-upload" class="custom-file-upload">Upload .wad File</label>
+			<p class="error-label" style="display: none; color: red;">The uploaded file is not valid</p>
+			<button id="btn-use-shareware" class="custom-file-upload">Use shareware</button>
+		</div>
+		<p style="display: block;">
+			<button id="btn-tesla-mode">Activate Tesla mode</button>
+		</p>
 		<canvas id="canvas"></canvas>
 	</div>
   </body>

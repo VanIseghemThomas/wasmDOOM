@@ -3,7 +3,7 @@ OUT_NAME=wasm-doom
 OUT_DIR ?= $(shell echo $$OUT_DIR)
 OUT_DIR := $(or $(OUT_DIR),../public/wasm)
 
-SDL_CFLAGS = -D_REENTRANT -D_THREAD_SAFE -s USE_SDL=2
+SDL_CFLAGS = -D_REENTRANT -D_THREAD_SAFE -s USE_SDL=2 -sUSE_SDL_MIXER=2
 INCLUDES=-I../include 
 # For MacOS SDL2 install with homebrew
 INCLUDES+=-I/opt/homebrew/include

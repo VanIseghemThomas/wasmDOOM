@@ -1,5 +1,7 @@
 import Module from '../wasm/wasm-doom.js';
 
+const sharewhare = window.location.origin + '/shareware.wad';
+console.log(sharewhare);
 let canvas = document.getElementById('canvas');
 canvas.width = 320;
 canvas.height = 200;
@@ -39,25 +41,48 @@ function validateWadFile(buffer) {
     return true;
 }
 
-let doom = await Module(module_args);
-let fileUpload = document.getElementById('wad-upload');
-fileUpload.addEventListener('change', (e) => { 
+const doom = await Module(module_args);
+const btnFileUpload = document.getElementById('wad-upload');
+const btnUseShareWare = document.getElementById('btn-use-shareware');
+const btnTeslaMode = document.getElementById('btn-tesla-mode');
+
+function LoadDoom(buffer) {
+    let errorLabel = document.querySelector('.error-label');
+    if (!validateWadFile(buffer)) {
+        errorLabel.style.display = 'block';
+        return;
+    }
+    errorLabel.style.display = 'none';
+    canvas.style.display = 'block';
+    doom.FS.writeFile('/doom-data.wad', buffer);
+    doom.callMain(['-iwad', 'doom-data.wad']);
+}
+
+btnFileUpload.addEventListener('change', (e) => { 
     let file = e.target.files[0];
     let reader = new FileReader();
     reader.onload = (e) => {
         let buffer = new Uint8Array(e.target.result);
-        let errorLabel = document.querySelector('.error-label');
-        if (!validateWadFile(buffer)) {
-            errorLabel.style.display = 'block';
-            return;
-        }
-        errorLabel.style.display = 'none';
-        canvas.style.display = 'block';
-        doom.FS.writeFile('/doom-data.wad', buffer);
-        doom.callMain(['-iwad', 'doom-data.wad']);
+        LoadDoom(buffer);
     }
     reader.readAsArrayBuffer(file);
     console.log('file uploaded');
+});
+
+btnUseShareWare.addEventListener('click', () => {
+    // Download the file and load it into the wasm module
+    fetch(sharewhare)
+        .then(response => response.arrayBuffer())
+        .then(arrBuffer => {
+            let buffer = new Uint8Array(arrBuffer)
+            LoadDoom(buffer);
+        });
+});
+
+btnTeslaMode.addEventListener('click', () => { 
+    let urlString = "https://www.youtube.com/redirect?q=" + window.location.href
+    let url = new URL(urlString);
+    window.location.href = url;
 });
 
 
