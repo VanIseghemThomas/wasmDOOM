@@ -1,6 +1,6 @@
 import Module from '../wasm/wasm-doom.js';
 
-const sharewhare = window.location.origin + '/shareware.wad';
+const sharewhare = window.location.href + '/shareware.wad';
 console.log(sharewhare);
 let canvas = document.getElementById('canvas');
 canvas.width = 320;
